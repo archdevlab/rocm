@@ -6,6 +6,8 @@
 #                                  |___/
 
 #Maintainer: blacksky3 <https://github.com/blacksky3>
+#Credits: Carson Rueter <roachh at proton mail dot com>
+#Credits: George Sofianos
 
 major=5.4.2
 major_short=5.4.2
