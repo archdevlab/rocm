@@ -85,13 +85,13 @@ package_rocm-stack(){
   extract_debgz "${srcdir}"/rocm-ocl-icd_${rocmoclicd_ver}.${minor}~${ubuntu_ver}_amd64.deb
   extract_debxz "${srcdir}"/rocm-clang-ocl_${rocmclang_ver}.${minor}~${ubuntu_ver}_amd64.deb
 
-  #mv "${pkgdir}/opt/rocm-5.4.2/" "${pkgdir}/opt/rocm/"
+  mv "${pkgdir}/opt/rocm-5.4.3/" "${pkgdir}/opt/rocm/"
 
   install -dm755 "${pkgdir}"/usr/share/licenses/rocm
   install -dm755 "${pkgdir}"/usr/share/doc/rocm
 
   # hsakmt-roct
-  sed -i "s#prefix=/opt/rocm-5.4.2#prefix=/opt/rocm#g" "${pkgdir}"/opt/rocm/share/pkgconfig/libhsakmt.pc
+  sed -i "s#prefix=/opt/rocm-5.4.3#prefix=/opt/rocm#g" "${pkgdir}"/opt/rocm/share/pkgconfig/libhsakmt.pc
   echo '/opt/rocm/lib' > "hsakmt-roct.conf"
   install -Dm644 "hsakmt-roct.conf" "$pkgdir/etc/ld.so.conf.d/hsakmt-roct.conf"
 
