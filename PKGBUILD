@@ -50,8 +50,6 @@ source=(https://repo.radeon.com/rocm/apt/${repo_folder_ver}/pool/main/r/rocm-llv
         https://repo.radeon.com/rocm/apt/${repo_folder_ver}/pool/main/r/rocm-ocl-icd/rocm-ocl-icd_${rocmoclicd_ver}.${minor}~${ubuntu_ver}_amd64.deb
         https://repo.radeon.com/rocm/apt/${repo_folder_ver}/pool/main/r/rocm-clang-ocl/rocm-clang-ocl_${rocmclang_ver}.${minor}~${ubuntu_ver}_amd64.deb)
 
-# extracts a debian package
-# $1: deb file to extract
 extract_debgz(){
   local tmpdir="$(basename "${1%.deb}")"
   rm -Rf "$tmpdir"
