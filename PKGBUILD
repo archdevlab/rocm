@@ -9,18 +9,18 @@
 #Credits: Carson Rueter <roachh at proton mail dot com>
 #Credits: George Sofianos
 
-major=5.4.3
-major_short=5.4.3
-minor=50403-121
+major=5.5
+major_short=5.5
+minor=50500-63
 ubuntu_ver=22.04
-repo_folder_ver=5.4.3
+repo_folder_ver=5.5
 
-llvm_ver=15.0.0.23045
-cmake_ver=0.8.0
+llvm_ver=16.0.0.23144
+cmake_ver=0.8.1
 devicelibs_ver=1.0.0
-comgr_ver=2.4.0
-hsakmt_ver=20221020.0.2
-hsa_ver=1.7.0
+comgr_ver=2.5.0
+hsakmt_ver=20230131.1.695
+hsa_ver=1.8.0
 rocminfo_ver=1.0.0
 rocmopencl_ver=2.0.0
 rocmoclicd_ver=2.0.0
@@ -46,7 +46,7 @@ source=(https://repo.radeon.com/rocm/apt/${repo_folder_ver}/pool/main/r/rocm-llv
         https://repo.radeon.com/rocm/apt/${repo_folder_ver}/pool/main/r/rocminfo/rocminfo_${rocminfo_ver}.${minor}~${ubuntu_ver}_amd64.deb
         https://repo.radeon.com/rocm/apt/${repo_folder_ver}/pool/main/r/rocm-opencl/rocm-opencl_${rocmopencl_ver}.${minor}~${ubuntu_ver}_amd64.deb
         https://repo.radeon.com/rocm/apt/${repo_folder_ver}/pool/main/r/rocm-opencl-dev/rocm-opencl-dev_${rocmopencl_ver}.${minor}~${ubuntu_ver}_amd64.deb
-        https://repo.radeon.com/rocm/apt/${repo_folder_ver}/pool/main/r/rocm-opencl-runtime/rocm-opencl-runtime_${major_short}.${minor}~${ubuntu_ver}_amd64.deb
+        https://repo.radeon.com/rocm/apt/${repo_folder_ver}/pool/main/r/rocm-opencl-runtime/rocm-opencl-runtime_5.5.0.${minor}~${ubuntu_ver}_amd64.deb
         https://repo.radeon.com/rocm/apt/${repo_folder_ver}/pool/main/r/rocm-ocl-icd/rocm-ocl-icd_${rocmoclicd_ver}.${minor}~${ubuntu_ver}_amd64.deb
         https://repo.radeon.com/rocm/apt/${repo_folder_ver}/pool/main/r/rocm-clang-ocl/rocm-clang-ocl_${rocmclang_ver}.${minor}~${ubuntu_ver}_amd64.deb)
 
@@ -79,17 +79,17 @@ package_rocm-stack(){
   extract_debgz "${srcdir}"/rocminfo_${rocminfo_ver}.${minor}~${ubuntu_ver}_amd64.deb
   extract_debgz "${srcdir}"/rocm-opencl_${rocmopencl_ver}.${minor}~${ubuntu_ver}_amd64.deb
   extract_debgz "${srcdir}"/rocm-opencl-dev_${rocmopencl_ver}.${minor}~${ubuntu_ver}_amd64.deb
-  extract_debgz "${srcdir}"/rocm-opencl-runtime_${major_short}.${minor}~${ubuntu_ver}_amd64.deb
+  extract_debgz "${srcdir}"/rocm-opencl-runtime_5.5.0.${minor}~${ubuntu_ver}_amd64.deb
   extract_debgz "${srcdir}"/rocm-ocl-icd_${rocmoclicd_ver}.${minor}~${ubuntu_ver}_amd64.deb
   extract_debxz "${srcdir}"/rocm-clang-ocl_${rocmclang_ver}.${minor}~${ubuntu_ver}_amd64.deb
 
-  mv "${pkgdir}/opt/rocm-5.4.3/" "${pkgdir}/opt/rocm/"
+  mv "${pkgdir}/opt/rocm-5.5.0/" "${pkgdir}/opt/rocm/"
 
   install -dm755 "${pkgdir}"/usr/share/licenses/rocm
   install -dm755 "${pkgdir}"/usr/share/doc/rocm
 
   # hsakmt-roct
-  sed -i "s#prefix=/opt/rocm-5.4.3#prefix=/opt/rocm#g" "${pkgdir}"/opt/rocm/share/pkgconfig/libhsakmt.pc
+  sed -i "s#prefix=/opt/rocm-5.5.0#prefix=/opt/rocm#g" "${pkgdir}"/opt/rocm/share/pkgconfig/libhsakmt.pc
   echo '/opt/rocm/lib' > "hsakmt-roct.conf"
   install -Dm644 "hsakmt-roct.conf" "$pkgdir/etc/ld.so.conf.d/hsakmt-roct.conf"
 
@@ -133,16 +133,16 @@ package_rocm-stack(){
   rm -rf "${pkgdir}/opt/rocm/share/doc"
 }
 
-sha256sums=('56c2cc6600afd3d8128252c9d8be4f8454e7109772d15bd809bb643eb2895ee6'
-            'b6a76abe01ea7c12faf0d57344195e0fd0638da19dcc6ccc5829d6dc32dcb227'
-            '4007016d604907c83ae999b82f012913f068b35e89cbdb81ae55461d0c6a11bd'
-            'b966685a075d15b50d9d68f053e72b23cfcb627802fb507fdd24357a84fa48dc'
-            '20278f31d37f9e155f77305004d6bdc6f4f5c3a8dc67073bad3d54e5addb11fc'
-            'c3e340563e7f2a8789652f2e7ddb52d47a5bf267f85d930208be3d71da970102'
-            '902ebb03ea6dd500170d7c4709b70d3b313218c260934085d19d73dd5dec5d09'
-            'df6723c34165f0f067e725654d37fcb9b4365230d5342fef10271c19edf2b6aa'
-            'c77907c7ac874a86e20b32d5d86c649ce84abfec88679263892c5ff508722580'
-            '1e88bb3d0be13283f81e9baa111343e68909f908a4184c319a12a2614c4927d2'
-            '5d48de32129a390218f07ebfd6b2c67d72d5a1bdaa220e9c2cbab31a6464f80c'
-            '1457c69a3b11eba803f340fcc958394c03860cbed788cc936d7e017f61e11c8a'
-            'b17da12f31c85890768c31da5f40ac93663a1b6f489c45dd32422d1345d8e3c4')
+sha256sums=('d2d01d8a30d2d87a8f2dc1b4403d8b17d88102409c089c8089d3068736d7ebe5'
+            '604478ba246c616d6f76dac84ca104195896e65e081aa251775e103a78a7b57b'
+            '838ed0d05ab98d598b483cde77eaa9de65550494011874f3ea130cf89d842e08'
+            'dd12a00973f8c64f145de87424f0d0fda6024a9572447f339a87565f77fe9d21'
+            '6f92bb96b248cfef36c9a04e71e962d780dad5f8035ff30d9e79cbf642a0e963'
+            '12a20b7463db2c2c99d407683f7636315f7a5f6b00b94bd01fe7c37b99031c1c'
+            'c6b7398c9e7b2914d70f46f60e953117808c7d1c83bcfa22f227a086b728a558'
+            'c7579f64a37f0ee8b55448abb3e1e420d95c5999492a92ed7768318a192a3621'
+            'a328448931cf4200bcddaec08d5ffc5482e58c5b9192450a5855fbce5b159e7d'
+            '9d1fc6a7961f6ec60047d31ba4f6a4823d4d5318ff0fbee3f154f09f15dc2597'
+            '67f466ead2b2a27158a2139f64e402b04dd9c9a810bbb4110cd17528954d1f36'
+            'dec946abe29bf610ede8bb7be5a467f7bb8f3a2906822b3daa900073c192d79f'
+            'e6dc8411facf232ee57df1be335c985acb1c423b56cb8e0166d278641c697518')
