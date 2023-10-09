@@ -2,6 +2,20 @@
 
 ROCm OpenCL stack for Vega 10 and later products packaged for Archlinux.
 
+Binary package from official radeon/rocm repo https://repo.radeon.com/rocm/apt/
+
+This package replace official Archlinux packages:
+
+- rocm-llvm
+- rocm-cmake
+- rocm-device-libs
+- comgr
+- hsakmt-roct
+- hsa-rocr
+- rocminfo
+- rocm-opencl-runtime
+- rocm-clang-ocl
+
 ## Supported Cards
 
 For these models of GPUs use the ROCm OpenCL stack is supported.
