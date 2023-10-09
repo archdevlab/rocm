@@ -1,4 +1,6 @@
-# rocm
+# ROCm
+
+ROCm OpenCL stack for Vega 10 and later products packaged for Archlinux.
 
 ## Supported Cards
 
