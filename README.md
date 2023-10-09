@@ -47,3 +47,13 @@ https://rocmdocs.amd.com/en/latest/release/windows_support.html#windows-supporte
 Legacy OpenCL stack (Proprietary), supports legacy products older than Vega 10 (opencl-amdgpu-pro and lib32-opencl-amdgpu-pro) (https://github.com/archdevlab/amdgpu-pro.git).
 
 ROCm OpenCL stack, supports Vega 10 and later products (this repo).
+
+### Prebuild package
+
+Prebuild package are available at https://repo.archdevlab.org/x86_64/rocm
+
+You can add this repo to your pacman.conf
+
+    [rocm]
+    SigLevel = Optional TrustAll
+    Server = https://repo.archdevlab.org/$arch/$repo
