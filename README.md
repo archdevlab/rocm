@@ -18,7 +18,7 @@ This package replace official Archlinux packages:
 
 ## Supported Cards
 
-For these models of GPUs use the ROCm OpenCL stack is supported.
+For these models of GPUs the ROCm OpenCL stack is supported.
 
 Name                        |     Architecture    |    LLVM Target
 ------                      |       ------        |     ------
